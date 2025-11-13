@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from todoapp import views as todo_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api/", include("todoapp.urls")),
-    path("", TemplateView.as_view(template_name="index.html")),
+    path("api/", include("todoapp.urls")),            # API endpoints
+    path("auth/", include("todoapp.urls_auth")),      # login/signup/logout
+    path("", todo_views.dashboard, name="home"),      # root -> dashboard (protected)
 ]

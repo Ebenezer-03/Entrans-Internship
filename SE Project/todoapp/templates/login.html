@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Sign In — To-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth.css' %}">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="auth-wrapper">
+
+    <div class="auth-header">
+        <h1 class="auth-title">Welcome back 👋</h1>
+        <p class="auth-subtitle">Login to continue your productivity journey</p>
+    </div>
+
+    <div class="auth-card">
+
+        <form method="post">
+            {% csrf_token %}
+            {% if error %}
+            <div class="error-box">{{ error }}</div>
+            {% endif %}
+
+            <div class="input-wrapper">
+                <i class="ri-mail-line"></i>
+                <input class="auth-input" name="email" type="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-wrapper">
+                <i class="ri-lock-2-line"></i>
+                <input class="auth-input" name="password" type="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="auth-btn">Sign In</button>
+
+            <div class="divider">or continue</div>
+
+            <div class="auth-footer">
+                New here? 
+                <a href="{% url 'auth:signup' %}" class="auth-link">Create an account</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

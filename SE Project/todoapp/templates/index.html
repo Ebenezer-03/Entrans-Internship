@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- App CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
 </head>
 <body>
 
@@ -23,14 +24,25 @@
             <p class="subtle">A new way of managing your tasks efficiently.</p>
         </div>
 
+        <!-- AUTH NAVIGATION ADDED HERE -->
         <nav class="header-nav">
-            <button class="nav-btn active" onclick="filterTasks('all', this)">All</button>
-            <button class="nav-btn" onclick="filterTasks('pending', this)">To-Do</button>
-            <button class="nav-btn" onclick="filterTasks('completed', this)">Completed</button>
-            <button class="nav-btn" onclick="filterTasks('archived', this)">Archived</button>
-            <button class="nav-btn" onclick="filterTasks('bin', this)">Bin 🗑️</button>
+            {% if request.session.user_id %}
+                <a class="nav-btn" href="/auth/logout/">Logout</a>
+            {% else %}
+                <a class="nav-btn" href="/auth/login/">Sign In</a>
+                <a class="nav-btn" href="/auth/signup/">Sign Up</a>
+            {% endif %}
         </nav>
     </header>
+
+    <!-- FILTER NAVIGATION -->
+    <nav class="header-nav" style="margin-top:10px;">
+        <button class="nav-btn active" onclick="filterTasks('all', this)">All</button>
+        <button class="nav-btn" onclick="filterTasks('pending', this)">To-Do</button>
+        <button class="nav-btn" onclick="filterTasks('completed', this)">Completed</button>
+        <button class="nav-btn" onclick="filterTasks('archived', this)">Archived</button>
+        <button class="nav-btn" onclick="filterTasks('bin', this)">Bin 🗑️</button>
+    </nav>
 
     <!-- DASHBOARD -->
     <section class="mini-dashboard">
@@ -100,9 +112,9 @@
 
 </div>
 
+<!-- YOUR JS CODE UNCHANGED BELOW -->
 <script>
 const API_URL = "/api/todos/";
-
 
 let allTasks = [];
 let currentFilter = "all";
@@ -209,13 +221,11 @@ function updateDashboard(tasks) {
     const pending = allTasks.filter(t => !t.completed && !t.deleted && !t.archived).length;
     const archived = allTasks.filter(t => t.archived && !t.deleted).length;
 
-    // Update stat boxes
     document.getElementById("stat-total").textContent = total;
     document.getElementById("stat-completed").textContent = completed;
     document.getElementById("stat-pending").textContent = pending;
     document.getElementById("stat-archived").textContent = archived;
 
-    // Calculate average progress for visible tasks
     const avg = tasks.length
         ? Math.round(tasks.reduce((a, b) => a + (b.progress || 0), 0) / tasks.length)
         : 0;
@@ -223,7 +233,6 @@ function updateDashboard(tasks) {
     document.getElementById("progress-text").textContent = `${avg}% Completed`;
     document.getElementById("progress-fill").style.width = avg + "%";
 }
-
 
 document.getElementById("todo-form").addEventListener("submit", async e => {
     e.preventDefault();

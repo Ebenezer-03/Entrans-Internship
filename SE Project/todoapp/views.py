@@ -2,7 +2,7 @@ import json
 from django.http import JsonResponse, HttpRequest
 from django.views.decorators.csrf import csrf_exempt
 from . import services
-
+from django.shortcuts import render,redirect
 
 @csrf_exempt
 def todos_list(request: HttpRequest):
@@ -51,3 +51,11 @@ def todo_detail(request: HttpRequest, todo_id: str):
         return JsonResponse({"error": "Not found"}, status=404)
 
     return JsonResponse({"error": "Method not allowed"}, status=405)
+
+def dashboard(request):
+    """Serve the dashboard only to authenticated users."""
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return redirect("/auth/login/")
+    # optionally: you can fetch user info and pass to template
+    return render(request, "index.html", {})
