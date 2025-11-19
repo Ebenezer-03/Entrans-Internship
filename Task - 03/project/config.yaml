@@ -1,0 +1,26 @@
+paths:
+  data: data/kc_house_data.csv
+  model_dir: models
+  model_artifact: models/best_model.pkl
+  model_metadata: models/model_metadata.json
+  eda_artifacts: reports/eda
+  evaluation_report: reports/model_report.md
+  stats_report: reports/stats_report.md
+  database: data/predictions.db
+
+training:
+  test_size: 0.2
+  random_state: 42
+  cv_folds: 5
+  grid_params:
+    regressor__n_estimators: [200, 400]
+    regressor__max_depth: [10, 20, 30]
+    regressor__min_samples_split: [2, 5, 10]
+    regressor__min_samples_leaf: [1, 2, 4]
+
+api:
+  host: 127.0.0.1
+  port: 8000
+
+ui:
+  backend_url: http://127.0.0.1:8000

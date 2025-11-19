@@ -1,0 +1,495 @@
+{
+  "best_params": {
+    "n_estimators": 500,
+    "max_depth": 20,
+    "min_samples_split": 13,
+    "min_samples_leaf": 1,
+    "max_features": null
+  },
+  "best_score": 146377.73569293454,
+  "evaluation": {
+    "rmse": 146377.73569293454,
+    "mae": 73123.7223062302,
+    "r2": 0.8582689014285081,
+    "feature_importances": [
+      [
+        "numeric__sqft_living",
+        0.5495911255695072
+      ],
+      [
+        "numeric__lat",
+        0.1660506043357884
+      ],
+      [
+        "numeric__long",
+        0.05882303083780621
+      ],
+      [
+        "numeric__sqft_living15",
+        0.03821410191159264
+      ],
+      [
+        "numeric__lat_long_interaction",
+        0.0350490132394792
+      ],
+      [
+        "numeric__sqft_above",
+        0.016731148192624553
+      ],
+      [
+        "categorical__waterfront_1",
+        0.014215292688348072
+      ],
+      [
+        "categorical__waterfront_0",
+        0.014030514195121599
+      ],
+      [
+        "numeric__sqft_lot15",
+        0.009632186147904424
+      ],
+      [
+        "numeric__sqft_lot",
+        0.009143874308518698
+      ],
+      [
+        "numeric__bathrooms",
+        0.007565264613763258
+      ],
+      [
+        "numeric__age_of_house",
+        0.006823201299682842
+      ],
+      [
+        "categorical__view_4",
+        0.0061173040316444965
+      ],
+      [
+        "categorical__zipcode_str_98004",
+        0.005860018425127678
+      ],
+      [
+        "categorical__view_0",
+        0.005762433467975065
+      ]
+    ]
+  },
+  "metadata": {
+    "numeric_cols": [
+      "bedrooms",
+      "bathrooms",
+      "sqft_living",
+      "sqft_lot",
+      "floors",
+      "sqft_above",
+      "sqft_basement",
+      "lat",
+      "long",
+      "sqft_living15",
+      "sqft_lot15",
+      "total_rooms",
+      "sqft_per_room",
+      "rooms_per_household",
+      "age_of_house",
+      "since_renovated",
+      "lat_long_interaction",
+      "has_basement",
+      "was_renovated"
+    ],
+    "categorical_cols": [
+      "waterfront",
+      "view",
+      "condition",
+      "grade",
+      "zipcode_str",
+      "sale_month",
+      "is_renovated"
+    ],
+    "numeric_medians": {
+      "bedrooms": 3.0,
+      "bathrooms": 2.25,
+      "sqft_living": 1910.0,
+      "sqft_lot": 7618.0,
+      "floors": 1.5,
+      "sqft_above": 1560.0,
+      "sqft_basement": 0.0,
+      "lat": 47.5718,
+      "long": -122.23,
+      "sqft_living15": 1840.0,
+      "sqft_lot15": 7620.0,
+      "total_rooms": 5.5,
+      "sqft_per_room": 354.0,
+      "rooms_per_household": 3.75,
+      "age_of_house": 40.0,
+      "since_renovated": 37.0,
+      "lat_long_interaction": -5814.655667200001,
+      "has_basement": 0.0,
+      "was_renovated": 0.0
+    },
+    "categorical_modes": {
+      "waterfront": "0",
+      "view": "0",
+      "condition": "3",
+      "grade": "7",
+      "zipcode_str": "98103",
+      "sale_month": "5",
+      "is_renovated": "0"
+    },
+    "target_mean": 540088.1417665294,
+    "target_std": 367127.19648269983,
+    "row_count": 21613,
+    "feature_count": 26
+  },
+  "study_trials": [
+    {
+      "n_estimators": 150,
+      "max_depth": 25,
+      "min_samples_split": 4,
+      "min_samples_leaf": 5,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 400,
+      "max_depth": 25,
+      "min_samples_split": 8,
+      "min_samples_leaf": 8,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 20,
+      "min_samples_split": 7,
+      "min_samples_leaf": 9,
+      "max_features": "sqrt"
+    },
+    {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_split": 18,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 100,
+      "max_depth": 25,
+      "min_samples_split": 2,
+      "min_samples_leaf": 7,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 200,
+      "max_depth": 30,
+      "min_samples_split": 17,
+      "min_samples_leaf": 5,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 250,
+      "max_depth": 30,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 150,
+      "max_depth": 20,
+      "min_samples_split": 8,
+      "min_samples_leaf": 5,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 150,
+      "max_depth": 25,
+      "min_samples_split": 3,
+      "min_samples_leaf": 3,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 350,
+      "max_depth": 20,
+      "min_samples_split": 18,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt"
+    },
+    {
+      "n_estimators": 500,
+      "max_depth": 5,
+      "min_samples_split": 14,
+      "min_samples_leaf": 3,
+      "max_features": null
+    },
+    {
+      "n_estimators": 250,
+      "max_depth": 10,
+      "min_samples_split": 13,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 250,
+      "max_depth": 15,
+      "min_samples_split": 20,
+      "min_samples_leaf": 3,
+      "max_features": null
+    },
+    {
+      "n_estimators": 250,
+      "max_depth": 15,
+      "min_samples_split": 20,
+      "min_samples_leaf": 3,
+      "max_features": null
+    },
+    {
+      "n_estimators": 350,
+      "max_depth": 15,
+      "min_samples_split": 20,
+      "min_samples_leaf": 3,
+      "max_features": null
+    },
+    {
+      "n_estimators": 450,
+      "max_depth": 10,
+      "min_samples_split": 16,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 350,
+      "max_depth": 10,
+      "min_samples_split": 11,
+      "min_samples_leaf": 4,
+      "max_features": null
+    },
+    {
+      "n_estimators": 350,
+      "max_depth": 15,
+      "min_samples_split": 15,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 400,
+      "max_depth": 5,
+      "min_samples_split": 14,
+      "min_samples_leaf": 7,
+      "max_features": "sqrt"
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 15,
+      "min_samples_split": 11,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 10,
+      "min_samples_split": 11,
+      "min_samples_leaf": 6,
+      "max_features": null
+    },
+    {
+      "n_estimators": 400,
+      "max_depth": 15,
+      "min_samples_split": 16,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 400,
+      "max_depth": 15,
+      "min_samples_split": 15,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 500,
+      "max_depth": 15,
+      "min_samples_split": 13,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 500,
+      "max_depth": 10,
+      "min_samples_split": 12,
+      "min_samples_leaf": 4,
+      "max_features": null
+    },
+    {
+      "n_estimators": 450,
+      "max_depth": 15,
+      "min_samples_split": 10,
+      "min_samples_leaf": 10,
+      "max_features": "sqrt"
+    },
+    {
+      "n_estimators": 450,
+      "max_depth": 20,
+      "min_samples_split": 9,
+      "min_samples_leaf": 4,
+      "max_features": null
+    },
+    {
+      "n_estimators": 350,
+      "max_depth": 10,
+      "min_samples_split": 13,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 15,
+      "min_samples_split": 12,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 5,
+      "min_samples_split": 5,
+      "min_samples_leaf": 4,
+      "max_features": "sqrt"
+    },
+    {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_split": 6,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 15,
+      "min_samples_split": 12,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 15,
+      "min_samples_split": 10,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 15,
+      "min_samples_split": 12,
+      "min_samples_leaf": 3,
+      "max_features": null
+    },
+    {
+      "n_estimators": 250,
+      "max_depth": 20,
+      "min_samples_split": 9,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 10,
+      "min_samples_split": 12,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_split": 13,
+      "min_samples_leaf": 4,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 100,
+      "max_depth": 25,
+      "min_samples_split": 10,
+      "min_samples_leaf": 6,
+      "max_features": null
+    },
+    {
+      "n_estimators": 400,
+      "max_depth": 15,
+      "min_samples_split": 7,
+      "min_samples_leaf": 8,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 200,
+      "max_depth": 20,
+      "min_samples_split": 11,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt"
+    },
+    {
+      "n_estimators": 300,
+      "max_depth": 10,
+      "min_samples_split": 14,
+      "min_samples_leaf": 5,
+      "max_features": null
+    },
+    {
+      "n_estimators": 350,
+      "max_depth": 15,
+      "min_samples_split": 15,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 350,
+      "max_depth": 15,
+      "min_samples_split": 15,
+      "min_samples_leaf": 2,
+      "max_features": null
+    },
+    {
+      "n_estimators": 250,
+      "max_depth": 15,
+      "min_samples_split": 17,
+      "min_samples_leaf": 3,
+      "max_features": null
+    },
+    {
+      "n_estimators": 500,
+      "max_depth": 20,
+      "min_samples_split": 13,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 500,
+      "max_depth": 20,
+      "min_samples_split": 12,
+      "min_samples_leaf": 1,
+      "max_features": "log2"
+    },
+    {
+      "n_estimators": 500,
+      "max_depth": 30,
+      "min_samples_split": 13,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 500,
+      "max_depth": 25,
+      "min_samples_split": 13,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 450,
+      "max_depth": 30,
+      "min_samples_split": 14,
+      "min_samples_leaf": 1,
+      "max_features": null
+    },
+    {
+      "n_estimators": 450,
+      "max_depth": 30,
+      "min_samples_split": 14,
+      "min_samples_leaf": 1,
+      "max_features": "log2"
+    }
+  ]
+}
