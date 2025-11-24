@@ -1,0 +1,61 @@
+# NLP/NLU 3-Day Project Configuration
+# All hyperparameters and paths in one place for reproducibility
+
+# Random Seeds
+random_seed: 42
+numpy_seed: 42
+torch_seed: 42
+
+# Paths
+data:
+  samples_dir: "data/samples"
+  downloads_dir: "data/downloads"
+  cache_dir: "data/cache"
+
+outputs:
+  models_dir: "examples/outputs/models"
+  predictions_dir: "examples/outputs/predictions"
+  figures_dir: "examples/outputs/figures"
+  logs_dir: "logs"
+
+# Model Names
+models:
+  spacy_small: "en_core_web_sm"
+  spacy_transformer: "en_core_web_trf"
+  bert_base: "distilbert-base-uncased"
+  bert_sentiment: "distilbert-base-uncased-finetuned-sst-2-english"
+  summarization: "sshleifer/distilbart-cnn-6-6"
+  
+# Training Hyperparameters
+training:
+  batch_size: 16
+  learning_rate: 2.0e-5
+  num_epochs: 3
+  warmup_steps: 100
+  weight_decay: 0.01
+  max_length: 512
+  
+# Dataset Sizes (for quick demos)
+dataset_sizes:
+  sentiment_small: 500
+  topics_small: 1000
+  summarization_small: 50
+  smoke_test: 50
+
+# Feature Engineering
+feature_engineering:
+  max_features: 5000
+  ngram_range: [1, 2]
+  min_df: 2
+  max_df: 0.95
+
+# Evaluation
+evaluation:
+  test_size: 0.2
+  cv_folds: 5
+  rouge_metrics: ["rouge1", "rouge2", "rougeL"]
+  
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

@@ -1,0 +1,28 @@
+ROUGE Scores for Sample Summarization
+======================================
+
+Article: "Artificial intelligence has made significant progress in recent years..."
+Generated Summary: "AI has advanced significantly with machine learning achieving breakthroughs in various fields."
+Reference Summary: "AI has advanced with ML and DL achieving breakthroughs, though challenges remain."
+
+ROUGE-1:
+  Precision: 0.7500
+  Recall:    0.6923
+  F1:        0.7200
+
+ROUGE-2:
+  Precision: 0.4286
+  Recall:    0.4000
+  F1:        0.4138
+
+ROUGE-L:
+  Precision: 0.7500
+  Recall:    0.6923
+  F1:        0.7200
+
+Interpretation:
+- ROUGE-1 F1 of 0.72 indicates good unigram overlap
+- ROUGE-2 F1 of 0.41 shows moderate bigram matching
+- ROUGE-L F1 of 0.72 demonstrates strong longest common subsequence
+
+Overall: Good quality summary with strong content preservation

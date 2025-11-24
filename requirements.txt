@@ -1,0 +1,39 @@
+# Core NLP/NLU Libraries
+spacy>=3.7.0
+spacy-transformers>=1.3.0
+transformers>=4.35.0
+torch>=2.1.0
+datasets>=2.14.0
+
+# Traditional ML & Feature Engineering
+scikit-learn>=1.3.0
+nltk>=3.8.1
+
+# Evaluation Metrics
+rouge-score>=0.1.2
+sacrebleu>=2.3.1
+
+# Data Processing & Visualization
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# Jupyter & Notebooks
+jupyter>=1.0.0
+jupyterlab>=4.0.0
+ipywidgets>=8.0.0
+
+# Testing & Code Quality
+pytest>=7.4.0
+pytest-cov>=4.1.0
+flake8>=6.0.0
+black>=23.0.0
+
+# Utilities
+pyyaml>=6.0.0
+sentencepiece>=0.1.99
+tqdm>=4.65.0
+
+# Optional: Word embeddings
+gensim>=4.3.0

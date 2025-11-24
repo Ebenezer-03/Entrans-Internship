@@ -1,0 +1,41 @@
+{
+  "name": "NLP/NLU 3-Day Project",
+  "dockerFile": "../Dockerfile",
+  "context": "..",
+  
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-python.black-formatter",
+        "ms-python.flake8",
+        "streetsidesoftware.code-spell-checker"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.flake8Enabled": true,
+        "python.formatting.provider": "black",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": true
+        },
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "jupyter.notebookFileRoot": "${workspaceFolder}"
+      }
+    }
+  },
+
+  "forwardPorts": [8888],
+  "postCreateCommand": "pip install -r requirements.txt && python -m spacy download en_core_web_sm",
+  
+  "remoteUser": "root",
+  
+  "mounts": [
+    "source=${localWorkspaceFolder}/data,target=/app/data,type=bind",
+    "source=${localWorkspaceFolder}/examples,target=/app/examples,type=bind"
+  ]
+}

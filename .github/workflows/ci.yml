@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Cache pip packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Download spaCy models
+      run: |
+        python -m spacy download en_core_web_sm
+
+    - name: Lint with flake8
+      run: |
+        flake8 nlp_day1/ nlp_day2/ nlu_day3/ utils/ tests/ --count --show-source --statistics
+
+    - name: Format check with black
+      run: |
+        black --check nlp_day1/ nlp_day2/ nlu_day3/ utils/ tests/
+
+    - name: Run unit tests
+      run: |
+        pytest tests/ -v --cov=nlp_day1 --cov=nlp_day2 --cov=nlu_day3 --cov=utils --cov-report=xml --cov-report=term
+
+    - name: Upload coverage reports
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+
+    - name: Run smoke test
+      run: |
+        python tests/test_smoke_model.py
+
+  docker-build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Build Docker image
+      run: |
+        docker build -t nlp-nlu-3day:test .
+
+    - name: Test Docker image
+      run: |
+        docker run --rm nlp-nlu-3day:test
